@@ -17,33 +17,29 @@ const data = [
   },
 ];
 
-const NavBar = () => {
+const NavBar = ({ mode: currentMode, setMode }) => {
   const { key, subMenu = [] } = data[0] || {};
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [hoveredIndex, setHoveredIndex] = React.useState(null);
-  const [mode, setMode] = React.useState(() => {
-    // localStorage dan rejimni oling
-    return localStorage.getItem('mode') === 'dark';
-  });
 
-  // Sub-menu ochilganmi yoki yo'qligini bilish uchun state
   const isSubMenuOpen = Boolean(anchorEl);
 
-  // Rejim o'zgarganda localStorage ga yozish
   const toggleMode = () => {
-    setMode(prevMode => {
-      const newMode = !prevMode;
-      localStorage.setItem('mode', newMode ? 'dark' : 'light'); // Yangi rejimni saqlang
-      return newMode;
-    });
+    const newMode = !currentMode;
+    localStorage.setItem('mode', newMode ? 'dark' : 'light');
+    setMode(newMode);
+  };
+
+  const handleMenuItemClick = () => {
+    setAnchorEl(null);
   };
 
   return (
-    <div className="navbar">
+    <div className={`navbar ${currentMode ? 'dark-mode' : ''}`}>
       <nav>
         <div className="logo">
           <Link to="/">
-            <img src="https://mangareader.to/images/logo.png" alt="" height={50}/>
+            <img src="https://mangareader.to/images/logo.png" alt="" height={50} />
           </Link>
         </div>
         <ul className="menu">
@@ -56,38 +52,38 @@ const NavBar = () => {
           >
             <MenuItem
               onClick={(e) => setAnchorEl(e.currentTarget)}
+              aria-haspopup="true"
+              aria-expanded={isSubMenuOpen ? 'true' : 'false'}
               style={{
                 backgroundColor: hoveredIndex === 0 ? 'rgba(0, 0, 0, 0.1)' : 'transparent',
               }}
             >
               {key} {isSubMenuOpen ? <ArrowDropDownIcon /> : <ArrowRightIcon />}
             </MenuItem>
-            <div className={`submenu ${isSubMenuOpen ? 'open' : ''}`}>
-              {isSubMenuOpen && (
-                <Menu
-                  id="basic-sub-menu"
-                  anchorEl={anchorEl}
-                  open={!!anchorEl}
-                  onClose={() => {
-                    setAnchorEl(null);
-                    setHoveredIndex(null);
-                  }}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  {subMenu.map((subMenuItem, i) => (
-                    <MenuItem
-                      key={i}
-                      onClick={() => setAnchorEl(null)}
-                      style={{
-                        backgroundColor: hoveredIndex === i + 1 ? 'rgba(0, 0, 0, 0.1)' : 'transparent',
-                      }}
-                    >
-                      <Link to={subMenuItem.key}>{subMenuItem.key}</Link>
-                    </MenuItem>
-                  ))}
-                </Menu>
-              )}
-            </div>
+            {isSubMenuOpen && (
+              <Menu
+                id="basic-sub-menu"
+                anchorEl={anchorEl}
+                open={isSubMenuOpen}
+                onClose={() => {
+                  setAnchorEl(null);
+                  setHoveredIndex(null);
+                }}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                {subMenu.map((subMenuItem, i) => (
+                  <MenuItem
+                    key={i}
+                    onClick={() => handleMenuItemClick()}
+                    style={{
+                      backgroundColor: hoveredIndex === i + 1 ? 'rgba(0, 0, 0, 0.1)' : 'transparent',
+                    }}
+                  >
+                    <Link to={subMenuItem.key}>{subMenuItem.key}</Link>
+                  </MenuItem>
+                ))}
+              </Menu>
+            )}
           </li>
           <li><NavLink to={"/az-list"}>A-Z List</NavLink></li>
           <li><NavLink to={"/news"}>News</NavLink></li>
@@ -103,8 +99,8 @@ const NavBar = () => {
           </button>
         </form>
         <div className="mode_t">
-          <button onClick={toggleMode}>
-            {mode ? (
+          <button onClick={toggleMode} style={{ width: 105 }}>
+            {currentMode ? (
               <><i className="fa-solid fa-moon"></i> Dark Mode</>
             ) : (
               <><i className="fa-solid fa-sun"></i> Light Mode</>

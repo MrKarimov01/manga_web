@@ -1,0 +1,171 @@
+@import './variebls';
+
+.MuiPaper-elevation{
+    background-color: #3f3f3f !important;
+}
+
+
+.MuiButtonBase-root{
+    a{
+        color: white !important;
+        &:hover{
+            color: $yellow !important;
+        }
+    }
+    &:hover{
+        color: $yellow !important;
+    }
+
+}
+
+
+
+.navbar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    nav{
+      
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-grow: 1;
+        .logo{
+            
+            margin-right: 25px;
+        }
+    }
+    .menu{
+        display: flex;
+    
+        align-items: center;
+        gap: 25px;
+        
+        li{
+            li{
+                &:hover{
+                    background-color: transparent !important;
+                }
+                &:active {
+                    background-color: transparent !important;
+                }
+            }
+            
+        }
+        a{
+            color: white;
+            height: 40px;
+            cursor: pointer;
+            line-height: 40px;
+            margin: 0;
+            padding: 0 10px;
+            color: #fff;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: Poppins;
+            &:hover{
+                color: $yellow;
+            }
+        }
+        .active{
+            color: $yellow;
+
+        }
+    }
+    .navbar__menu{
+        flex-grow: 1.2;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 20px;
+        .search{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            
+            height: 40px;
+            background-color: $white;
+            border-radius: 8px;
+            align-items: center;
+            padding: 6px  10px;
+            a{
+                height: 26px;
+                line-height: 26px;
+                font-size: 11px;
+                background: #e9daff;
+                color: $indigo;
+                padding: 0 6px;
+                border-radius: 6px;
+                text-transform: uppercase;
+                &:hover{    
+                    background: $indigo;
+                    color: #e9daff;
+                }
+
+            }
+            input{
+                color: #111;
+                
+                font-size: 14px;
+                font-weight: 400;
+                background: #fff;
+                margin-left: 5px;
+                outline: none;
+                border: none;
+                height: 100%;
+                
+                &::placeholder{
+                    opacity: .6;
+                }
+            }
+
+            button{
+                background-color: transparent;
+                border: none;
+                width: 40px;
+                height: 40px;
+                color: $black;
+                i{
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .mode_t{
+            button{
+                font-size: 15px;
+                align-items: center;
+                font-weight: 700;
+                background-color: transparent;
+                color: $white;
+                gap: 10px;
+                display: flex;
+                outline: none;
+                border: none;
+            }
+        }
+    }
+
+
+
+}
+
+/* Navbar.css */
+.submenu {
+    transition: all 1s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden; /* Sub-menu ni ko'rinmas qilish */
+  }
+  
+.submenu.open{
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible; /* Sub-menu ko'rinadigan bo'ladi */
+}
+
+  

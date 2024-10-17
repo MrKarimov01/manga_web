@@ -1,0 +1,142 @@
+@import './variebls';
+
+.responsve_nav{
+    .mode_btn_res{
+        display: none;
+    }
+    .mode_t{
+        display: none;
+    }
+} 
+.hambergur{
+    display: none !important;
+}
+
+
+@media screen and (max-width: 1130px) {
+    .container{
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    .navbar{
+        background-color: $indigo;
+        margin-top: 0 !important;
+        width: 100% !important;
+        padding: 0 3vw !important;
+        padding-top: 35px !important;
+
+    }
+ 
+    .wrapper{
+        padding: 10px 2vw !important;
+        position: absolute;
+        
+        bottom: -60%;
+        background-color: $indigo;
+        
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%);
+    }
+    .search {
+        display: none !important;
+        width: 100%;
+        display: flex;
+        align-items: center; /* Vertikal markazlash */
+        background-color: $white;
+        border-radius: 8px;
+        padding: 6px 10px;
+        
+    
+        a {
+            height: 26px;
+            line-height: 26px;
+            font-size: 11px;
+            background: #e9daff;
+            color: $indigo;
+            padding: 0 6px;
+            border-radius: 6px;
+            text-transform: uppercase;
+    
+            &:hover {
+                background: $indigo;
+                color: #e9daff;
+            }
+        }
+    
+        input {
+            color: #111;
+            font-size: 14px;
+            font-weight: 400;
+            background: #fff;
+            margin-left: 5px;
+            outline: none;
+            border: none;
+            height: 100%;
+            flex-grow: 1; /* Input kengligini oshirish uchun */
+            margin-right: 10px; /* Right margin for spacing */
+            
+            &::placeholder {
+                opacity: .6;
+            }
+        }
+    
+        button {
+            background-color: transparent;
+            border: none;
+            width: 40px;
+            height: 40px;
+            color: $black;
+            i {
+                font-size: 16px;
+            }
+        }
+    }
+    .mode_t{
+        display: none;
+    }
+    .responsve_nav{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        align-items: center;
+        .mode_t{
+            display: block ;
+         
+            i{
+                font-size:32px !important; 
+                cursor: pointer;
+            }
+        }
+        .mode_btn_res{
+            display: block !important;
+            background-color: transparent;
+            color: white;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            i{
+                font-weight: bold;
+                font-size:32px !important; 
+            }
+        }
+
+    }
+    .nav_active{
+        display: flex !important;
+    }
+    .menu{
+        display: none !important    ;
+    }
+    .hambergur{
+        display: block !important;
+        i{
+            font-size:32px !important;    
+        }
+    }
+    .active_wrapper{
+        display: none !important;
+    }
+
+    
+}

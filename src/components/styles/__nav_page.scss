@@ -27,6 +27,11 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+    padding-bottom: 10px !important;
+     i{
+                font-weight: bold;
+                font-size: 22px;
+            }
     nav{
       
         display: flex;
@@ -42,7 +47,7 @@
         display: flex;
     
         align-items: center;
-        gap: 25px;
+        gap: 1.2vw;
         
         li{
             li{
@@ -111,7 +116,7 @@
             input{
                 color: #111;
                 
-                font-size: 14px;
+                font-size: 16px;
                 font-weight: 400;
                 background: #fff;
                 margin-left: 5px;

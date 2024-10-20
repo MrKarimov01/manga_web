@@ -11,9 +11,43 @@
 .hambergur{
     display: none !important;
 }
-
-
 @media screen and (max-width: 1130px) {
+    .mode_t{
+        display: none;
+    }
+    .responsve_nav{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        align-items: center;
+        .mode_t{
+            display: block ;
+         
+            i{
+                font-size:28px !important; 
+                cursor: pointer;
+            }
+        }
+
+
+    }
+    // .nav_active{
+    //     display: flex !important;
+    // }
+
+
+    // .active_wrapper{
+    //     display: none !important;
+    // }
+    .logo{
+        img{
+            height: 40px;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 970px) {
     .container{
         max-width: 100% !important;
         padding: 0 !important;
@@ -23,7 +57,131 @@
         margin-top: 0 !important;
         width: 100% !important;
         padding: 0 3vw !important;
-        padding-top: 35px !important;
+        padding-top: 25px !important;
+
+    }
+ 
+    .wrapper{
+        padding: 10px 2vw !important;
+        position: absolute;
+        
+        bottom: -60%;
+        background-color: $indigo;
+        
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%);
+    }
+    .search {
+        display: none !important;
+        width: 100%;
+        display: flex;
+        align-items: center; /* Vertikal markazlash */
+        background-color: $white;
+        border-radius: 8px;
+        padding: 6px 10px;
+        
+    
+        a {
+            height: 26px;
+            line-height: 26px;
+            font-size: 11px;
+            background: #e9daff;
+            color: $indigo;
+            padding: 0 6px;
+            border-radius: 6px;
+            text-transform: uppercase;
+    
+            &:hover {
+                background: $indigo;
+                color: #e9daff;
+            }
+        }
+    
+        input {
+            color: #111;
+            font-size: 14px;
+            font-weight: 400;
+            background: #fff;
+            margin-left: 5px;
+            outline: none;
+            border: none;
+            height: 100%;
+            flex-grow: 1; /* Input kengligini oshirish uchun */
+            margin-right: 10px; /* Right margin for spacing */
+            
+            &::placeholder {
+                opacity: .6;
+            }
+        }
+    
+        button {
+            background-color: transparent;
+            border: none;
+            width: 40px;
+            height: 40px;
+            color: $black;
+            i {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .responsve_nav{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        align-items: center;
+        .mode_t{
+            display: block ;
+         
+            i{
+                font-size:28px !important; 
+                cursor: pointer;
+            }
+        }
+        .mode_btn_res{
+            display: block !important;
+            background-color: transparent;
+            color: white;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            i{
+                font-weight: bold;
+                font-size:28px !important; 
+            }
+        }
+
+    }
+    .nav_active{
+        display: flex !important;
+    }
+
+
+    .active_wrapper{
+        display: none !important;
+    }
+    .logo{
+        img{
+            height: 40px;
+        }
+    }
+    
+}
+
+
+@media screen and (max-width: 800px) {
+    .container{
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    .navbar{
+        background-color: $indigo;
+        margin-top: 0 !important;
+        width: 100% !important;
+        padding: 0 3vw !important;
+        padding-top: 25px !important;
 
     }
  
@@ -104,12 +262,12 @@
             display: block ;
          
             i{
-                font-size:32px !important; 
+                font-size:28px !important; 
                 cursor: pointer;
             }
         }
         .mode_btn_res{
-            display: block !important;
+            display: none !important;
             background-color: transparent;
             color: white;
             border: none;
@@ -117,7 +275,7 @@
             outline: none;
             i{
                 font-weight: bold;
-                font-size:32px !important; 
+                font-size:28px !important; 
             }
         }
 
@@ -131,12 +289,211 @@
     .hambergur{
         display: block !important;
         i{
-            font-size:32px !important;    
-        }
+            font-size:28px !important;  
+        }  
     }
     .active_wrapper{
         display: none !important;
     }
+    .logo{
+        img{
+            height: 40px;
+        }
+    }
 
+
+
+  
+    .bootom_nav{
+        display: block !important;
+        width: 100%;
+        height: 70px;
+        position: fixed;
+        background-color: $indigo;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom: 0;
+        ul{
+            display: flex;
+            margin: auto;
+            width: 100%;
+            justify-content: space-evenly;
+            position: relative;
+
+            li{
+                position: relative;
+                width: 12vw;
+                height: 12vw; 
+                z-index: 1;
+                a{
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    text-align: center;
+                    font-weight: 500;
+
+                    .icon{
+                        position: relative;
+                        display: block;
+                        line-height: 75px;
+                        font-size: 24px;
+                        text-align: center;
+                        transition: .5s;
+                        color: $white;
+                    }
+                    .text{
+                        position: absolute;
+                        color: $white;
+                        font-weight: 400;
+                        font-size: 1em;
+                        letter-spacing: 0.05em;
+                        transition: .5s;
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    
+
+                }
+
+                .active{
+                    .icon{
+                        transform: translateY(-35px);
+                        color: $indigo;
+                    }.text{
+                        opacity: 1;
+                        transform: translateY(10px);
+                    }
+                }
+                &:hover a .icon{
+                    transform: translateY(-35px);
+                }
+                &:hover a .text{
+                    opacity: 1;
+                    transform: translateY(10px);
+                }
+                
+            }
+            .indicator{
+                overflow: hidden;
+                position: absolute;   
+                width: 60px ;
+                height: 60px ;
+                background: $yellow;
+                top: -4.0vw;
+                border-radius: 50%;
+                border: 6px solid $lightBlack;
+                transition: .5s;
+  
+                &::before{
+                    overflow: hidden;
+                    content: "";
+                    position: absolute;
+                    top: 40%;
+                    width: 20px;
+                    height: 20px;
+                    background-color: transparent;
+                    left: -22.6px;
+                    border-top-right-radius: 20px;
+                    box-shadow: 0 -10px 0 0 $lightBlack;
+
+                }
+                &::after{
+                    overflow: hidden;
+                    content: "";
+                    position: absolute;
+                    top: 40%;
+                    width: 20px;
+                    height: 20px;
+                    background-color: transparent;
+                    right: -22.5px;
+                    border-top-left-radius: 20px;
+                    box-shadow: 0 -10px 0 0 $lightBlack;
+
+                }
+            }
+        }
+        li:nth-child(1):has(.active) ~ .indicator{
+            transform: translateX(calc(-33.5vw));
+        }
+        li:nth-child(2):has(.active) ~ .indicator{
+            transform: translateX(calc(-11.2vw ));
+        }
+        li:nth-child(3):has(.active) ~ .indicator{
+            transform: translateX(calc(11.2vw));
+        }
+        li:nth-child(4):has(.active) ~ .indicator{
+            transform: translateX(calc(33.6vw));
+        }
+
+    }
+    .active_bootom_nav{
+        .indicator{
+            overflow: hidden;
+            position: absolute;   
+            width: 60px ;
+            height: 60px ;
+            background: $yellow;
+      
+            border-radius: 50%;
+            border: 6px solid $indigo !important;
+            transition: .5s;
+
+            &::before{
+                overflow: hidden;
+                content: "";
+                position: absolute;
+                top: 40%;
+                width: 20px;
+                height: 20px;
+                background-color: transparent;
+                left: -22.6px;
+                border-top-right-radius: 20px;
+                box-shadow: 0 -10px 0 0 $indigo !important;
+
+            }
+            &::after{
+                overflow: hidden;
+                content: "";
+                position: absolute;
+                top: 40%;
+                width: 20px;
+                height: 20px;
+                background-color: transparent;
+                right: -22.5px;
+                border-top-left-radius: 20px;
+                box-shadow: 0 -10px 0 0 $indigo !important;
+
+            }
+        }
+    }
     
+}
+@media screen and (max-width: 710px){
+    .indicator{
+        top: -4.5vw  !important;
+    }
+}
+@media screen and (max-width: 640px){
+    .indicator{
+        top: -4.5vw  !important;
+    }
+}
+@media screen and (max-width: 500px) {
+    .indicator{
+        top: -6.2vw !important;
+    }
+}
+@media screen and (max-width: 400px) {
+    .indicator{
+        top: -7.4vw !important;
+    }
+}
+@media screen and (max-width: 350px) {
+    .indicator{
+        top: -8.4vw !important;
+    }
 }

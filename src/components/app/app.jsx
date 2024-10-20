@@ -12,11 +12,11 @@ const App = () => {
   // Effect to sync mode with localStorage
   useEffect(() => {
     localStorage.setItem('mode', mode ? 'dark' : 'light');
-    document.body.className = mode ? 'dark-mode' : 'light-mode'; 
+
   }, [mode]);
 
   return (
-    <div className={`container ${mode ? 'dark-mode' : ''}`}>
+    <div className={`container `}>
       <Navbar mode={mode} setMode={setMode} />
 
     </div>

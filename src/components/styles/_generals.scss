@@ -6,7 +6,12 @@
     list-style: none;
     text-decoration: none;
 }
-
+a{
+    cursor: pointer;
+}
+button{
+    cursor: pointer;
+}
 html{
     scroll-behavior: smooth;
 }
@@ -17,7 +22,3 @@ body{
     color: $white;
     font-family: "Roboto", sans-serif;
 }
-.dark-mode{
-    background-color: #7b36ce;
-}
-

@@ -7,14 +7,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+
 
 
 import "./../index.scss";
@@ -89,7 +82,8 @@ const NavBar = ({ mode: currentMode, setMode }) => {
   
 
   return (
-    <div className={`navbar ${currentMode ? 'dark-mode' : ''}`} style={{position: "relative "}}>
+    <React.Fragment>
+          <div className={`navbar `} style={{position: "relative "}}>
       <nav>
         <Button onClick={toggleDrawer(true)} className="hambergur"><i className="fa-solid fa-bars " style={{ color: "white" }}></i></Button>
         <Drawer open={open} onClose={toggleDrawer(false)} >
@@ -179,6 +173,44 @@ const NavBar = ({ mode: currentMode, setMode }) => {
         </div>
       </div>
     </div>
+
+    <div className={currentMode? "bootom_nav" : "bootom_nav active_bootom_nav"}>
+      <ul>
+        <li className="list">
+          <NavLink to={"/"}>
+            <span className="icon"><i class="fa-solid fa-house"></i></span>
+            <span className="text">Home</span>
+          </NavLink>
+        </li>
+        <li className="list">
+          <NavLink to={"/saveds"}>
+            <span className="icon"><i class="fa-regular fa-bookmark"></i></span>
+            <span className="text">Saved</span>
+          </NavLink>
+        </li>
+        <li className="list">
+          <NavLink to={"/content"}>
+            <span className="icon"><i class="fa-solid fa-book"></i></span>
+            <span className="text">Topic</span>
+          </NavLink>
+        </li>
+        <li className="list">
+          <NavLink to={"/search"}>
+            <span className="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <span className="text">Search</span>
+          </NavLink>
+        </li>
+        <div className="indicator"></div>
+      </ul>
+
+    </div>
+    <div className={currentMode ? "dark_mode" : "dark_mode open_dark"}>
+
+    </div>
+
+
+    </React.Fragment>
+
   );
 };
 

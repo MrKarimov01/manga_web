@@ -17,6 +17,9 @@
     }
 
 }
+.bootom_nav{
+    display: none;
+}
 
 
 
@@ -173,5 +176,23 @@
     transform: translateY(0);
     visibility: visible; /* Sub-menu ko'rinadigan bo'ladi */
 }
+.dark_mode{
+    background-color: $indigo_white !important;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    bottom: 0;
 
-  
+    transition: all 1s;
+    right:  0;
+    transform: translateX(100%) translateY(-100%) scale(0);
+    z-index: -9999;
+    border-radius: 100%;
+    
+}
+.open_dark{
+    border-radius: 0%;
+    right: 0;
+    transform: translateX(0%)translateY(0%) scale(1);
+    transition: all 1s;
+}

@@ -204,7 +204,7 @@ const NavBar = ({ mode: currentMode, setMode }) => {
       </ul>
 
     </div>
-    <div className={currentMode ? "dark_mode" : "dark_mode open_dark"}>
+    <div className={currentMode ? "dark_mode open_dark" : "dark_mode"}>
 
     </div>
 

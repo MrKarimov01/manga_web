@@ -11,7 +11,7 @@
 .hambergur{
     display: none !important;
 }
-@media screen and (max-width: 1130px) {
+@media screen and (max-width: 1440px) {
     .mode_t{
         display: none;
     }
@@ -48,6 +48,12 @@
 }
 
 @media screen and (max-width: 970px) {
+    .hambergur{
+        display: block !important;
+        i{
+            font-size:28px !important;  
+        }  
+    }
     .container{
         max-width: 100% !important;
         padding: 0 !important;
@@ -396,39 +402,14 @@
                 width: 70px;
                 height:70px;
                 background: $yellow;
-                top: -45%;
+                top: -46%;
                 border-radius: 50%;
-                border: 6px solid $indigo;
+                border: 6px solid $yellow;
                 transition: .5s;
                 left: 6.3vw; /* Indicatorni boshlanish nuqtasini markazga qo'yamiz */
                 transform: translateX(0%);
   
-                &::before{
-                    overflow: hidden;
-                    content: "";
-                    position: absolute;
-                    top: 40%;
-                    width: 20px;
-                    height: 20px;
-                    background-color: transparent;
-                    left: -22.6px;
-                    border-top-right-radius: 20px;
-                    box-shadow: 0 -10px 0 0 $lightBlack;
-
-                }
-                &::after{
-                    overflow: hidden;
-                    content: "";
-                    position: absolute;
-                    top: 40%;
-                    width: 20px;
-                    height: 20px;
-                    background-color: transparent;
-                    right: -22.5px;
-                    border-top-left-radius: 20px;
-                    box-shadow: 0 -10px 0 0 $lightBlack;
-
-                }
+                
             }
         }
         li:nth-child(1):has(.active) ~ .indicator{
@@ -455,7 +436,7 @@
             background: $yellow;
       
             border-radius: 50%;
-            border: 6px solid $lightBlack !important;
+            border: 6px solid $indigo !important;
             transition: .5s;
 
             &::before{
@@ -514,7 +495,7 @@
 //     }
 // }
 
-@media screen and (max-width:  550px)
+@media screen and (max-width:  580px)
 {
     .indicator{
         display: none;

@@ -20,6 +20,7 @@ const data = [
       { key: "manhwa" },
       { key: "comic" },
       { key: "doujinshi" },
+      { key: "manhua" },
     ],
   },
 ];
@@ -84,32 +85,32 @@ const NavBar = ({ mode: currentMode, setMode }) => {
   
       <Link to={"/"} onClick={toggleDrawer(false)} className="link_btn">Home</Link>
       <div className="inner_nav">
-        <hr />
+        
         <div className="types">
           <h3>Types</h3>
           <ul>
             {data.map((item) => (
-              <li key={item.key}>
-                {item.subMenu.map((subItem) => (
-                  <Link
+              
+                item.subMenu.map((subItem) => (
+                  <li key={item.key}> <Link
                     to={`content/types/${subItem.key}`}
                     key={subItem.key}
                   >
                     {subItem.key}
-                  </Link>
-                ))}
-              </li>
+                  </Link></li>
+                ))
+              
             ))}
           </ul>
         </div>
-        <hr />
+        
         <div className="side_menu_links">
-          <Link to={"/az-list"} className="link_btn">A-Z List</Link>
-          <hr />
+          <Link to={"content/az-list"} className="link_btn">A-Z List</Link>
+          
           <Link to={"/?random=1"} className="link_btn">Random</Link>
-          <hr />
-          <Link to={'/news'} className="link_btn">News</Link>
-          <hr />
+          
+          <Link to={'content/news'} className="link_btn">News</Link>
+          
         </div>
         <div className="genres_side_nav">
           <h3>Genres</h3>
@@ -125,7 +126,7 @@ const NavBar = ({ mode: currentMode, setMode }) => {
               </li>
             ))}
             <li onClick={toggleMenu} style={{ cursor: 'pointer' }}>
-              {isOpen ? 'Less-' : 'More+'}
+              <span>{isOpen ? 'Less-' : '+ More'}</span>
             </li>
           </ul>
         </div>
@@ -234,7 +235,7 @@ const NavBar = ({ mode: currentMode, setMode }) => {
                         backgroundColor: hoveredIndex === i + 1 ? 'rgba(0, 0, 0, 0.1)' : 'transparent',
                       }}
                     >
-                      <Link to={subMenuItem.key}>{subMenuItem.key}</Link>
+                      <Link to={"/content/" + subMenuItem.key}>{subMenuItem.key}</Link>
                     </MenuItem>
                   ))}
                 </Menu>

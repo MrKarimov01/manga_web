@@ -1,7 +1,7 @@
 @import './variebls';
 
 .MuiPaper-elevation{
-    background-color: #3f3f3f !important;
+    background-color: $light_grey !important;
 }
 
 
@@ -188,6 +188,7 @@
     transform: translateX(100%) translateY(-100%) scale(0);
     z-index: -9999;
     border-radius: 100%;
+    z-index: -1;
     
 }
 .open_dark{
@@ -213,7 +214,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100% !important;
+    width:260px !important;
     padding-top: 10px;
     
     .close_side_btn{
@@ -221,7 +222,7 @@
         height: 40px;
         border-radius: 100%;
         border: none;
-        background-color: #3f3f3f;
+        background-color: $light_grey;
         margin-left: 15px;
         i{
             
@@ -238,6 +239,140 @@
         padding: 10px 15px;
         font-size: 13px;
         font-weight: 500;
+
+        &:hover{
+            color: $yellow;
+        }
     }
+    .inner_nav{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;   
+         
+        .types{
+            width: 100%;
+            border-top: 1px solid #3f3f3f;
+            border-bottom: 1px solid #3f3f3f;
+            
+            h3{
+                color: $white;
+                padding: 10px 15px;
+                cursor: pointer;
+                transition: all .4s;
+                font-family: "Poppins", sans-serif;
+                font-size: 13px;
+                &:hover{
+                    color: $yellow;
+
+                }
+            }
+
+            ul{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 0 15px 10px;
+                li{
+                    width: 100px;
+                    padding: 6px 10px;
+                    background-color: #3f3f3f;
+                    margin: 0 2px 6px 0;
+                    border-radius: 5px;
+                    &:hover a{
+                        color: $yellow;
+                    }
+                    a{
+                        transition: all .4s;
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 12px;
+                        text-transform: capitalize;
+                        color: white;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+        }
+        .side_menu_links{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            a{
+                font-family: "Poppins", sans-serif;
+                font-size: 13px;
+                text-transform: capitalize;
+                color: white;
+                font-weight: 500;
+                margin: 0 0 10px;
+                width: 100%;
+                
+                transition: all .4s;
+                border-bottom: 1px solid $light_grey;
+                &:hover{
+                    color: $yellow;
+                }
+            }
+
+        }
+        .genres_side_nav{
+            width: 100%;
+            
+            border-bottom: 1px solid #3f3f3f;
+            
+            h3{
+                color: $white;
+                padding: 10px 15px;
+                cursor: pointer;
+                transition: all .4s;
+                font-family: "Poppins", sans-serif;
+                font-size: 13px;
+                &:hover{
+                    color: $yellow;
+
+                }
+            }
+
+            ul{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 0 15px 10px;
+                li{
+                    width: 100px;
+                    padding: 6px 10px;
+                    background-color: #3f3f3f;
+                    margin: 0 2px 6px 0;
+                    border-radius: 5px;
+                    &:hover a{
+                        color: $yellow;
+                    }
+                    a{
+                        transition: all .4s;
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 12px;
+                        text-transform: capitalize;
+                        color: white;
+                        font-weight: 500;
+                    }
+                    span{
+                        transition: all .4s;
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 12px;
+                        text-transform: capitalize;
+                        color: $yellow;
+                        font-weight: 900;
+                    }
+                    &:hover span{
+                        color: $white;
+                    }
+
+                }
+            }
+
+        }
+
+    }
+    
    
 }

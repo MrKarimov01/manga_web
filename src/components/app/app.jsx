@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Navbar } from './../index';
+import { Navbar ,NotFound} from './../index';
+import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
   const [mode, setMode] = React.useState(() => {
@@ -18,6 +19,17 @@ const App = () => {
   return (
     <div className={`container `}>
       <Navbar mode={mode} setMode={setMode} />
+
+      <Routes>
+        <Route index element={"Home"} />
+        <Route path="/saveds" element={"saveds"} />
+        <Route path="/content" element={"content"} />
+        <Route path="/filter" element={"filter"} />
+        <Route path="*" element={<NotFound mode={mode}/>} />
+
+
+      </Routes>
+      
 
     </div>
   );

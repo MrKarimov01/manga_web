@@ -78,10 +78,22 @@ const NavBar = ({ mode: currentMode, setMode }) => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
+  const toggleMode = () => {
+    const newMode = !currentMode;
+    localStorage.setItem('mode', newMode ? 'dark' : 'light');
+    setMode(newMode);
+  };
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" className="side_bar_in">
+      <div className="top_menu">
       <button onClick={toggleDrawer(false)} className="close_side_btn"><i class="fa-solid fa-chevron-left"></i></button>
+
+      <button onClick={toggleMode} className="mode_btn_side">
+                <i className={currentMode ? "fa-solid fa-moon" : "fa-solid fa-sun"}></i>
+      </button>
+
+
+      </div>
   
       <Link to={"/"} onClick={toggleDrawer(false)} className="link_btn">Home</Link>
       <div className="inner_nav">
@@ -169,11 +181,7 @@ const NavBar = ({ mode: currentMode, setMode }) => {
   const isSubMenuOpen = Boolean(anchorEl);
 
   const [navactive, setNavactive] = React.useState(false);
-  const toggleMode = () => {
-    const newMode = !currentMode;
-    localStorage.setItem('mode', newMode ? 'dark' : 'light');
-    setMode(newMode);
-  };
+  
 
   const handleMenuItemClick = () => {
     setAnchorEl(null);
@@ -188,7 +196,7 @@ const NavBar = ({ mode: currentMode, setMode }) => {
             <Drawer
               open={open}
               onClose={toggleDrawer(false)}
-              className="side_nav"
+              className={currentMode ? "side_nav side_nav_light" : "side_nav "}
             >
               {DrawerList}
             </Drawer>

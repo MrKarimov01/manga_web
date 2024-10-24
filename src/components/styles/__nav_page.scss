@@ -196,3 +196,48 @@
     transform: translateX(0%)translateY(0%) scale(1);
     transition: all 1s;
 }
+
+.side_nav .MuiDrawer-paperAnchorLeft{
+
+
+    background: rgba(255, 255, 255, 0.11)  !important;
+
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.388);
+    backdrop-filter: blur(16.2px);
+    -webkit-backdrop-filter: blur(12.2px);
+
+
+    
+}
+.side_bar_in{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100% !important;
+    padding-top: 10px;
+    
+    .close_side_btn{
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        border: none;
+        background-color: #3f3f3f;
+        margin-left: 15px;
+        i{
+            
+            font-weight: 900;
+            color: $white;
+            font-size: 20px;
+
+        }
+    }
+    .link_btn{
+        width: 100%;
+        padding: 10px 15px;
+        color: $white;
+        padding: 10px 15px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+   
+}

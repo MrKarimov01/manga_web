@@ -73,7 +73,10 @@
         transform: translate(-50%);
     }
     .search {
+        transition: all 2s;
         display: none !important;
+        opacity: 0;
+        transform: translateY(-10px);       
         width: 100%;
         display: flex;
         align-items: center; /* Vertikal markazlash */
@@ -156,6 +159,9 @@
     }
     .nav_active{
         display: flex !important;
+        opacity: 1 !important;
+        transform: translateY(0px) !important;  
+        transition: all 2s; 
     }
 
 
@@ -280,6 +286,11 @@
         }
 
     }
+    .navbar__menu{
+        .wrapper{
+            display: none !important;
+        }
+    }
     .nav_active{
         display: flex !important;
     }
@@ -307,6 +318,7 @@
     .bootom_nav{
         display: block !important;
         width: 100%;
+        
         height: 70px;
         position: fixed;
         background-color: $indigo;
@@ -318,13 +330,14 @@
             display: flex;
             margin: auto;
             width: 100%;
-            justify-content: space-evenly;
+            max-width: 600px;
+
+            
             position: relative;
 
             li{
                 position: relative;
-                width: 12vw;
-                height: 12vw; 
+                width: 25%;
                 z-index: 1;
                 a{
                     position: relative;
@@ -340,7 +353,7 @@
                         position: relative;
                         display: block;
                         line-height: 75px;
-                        font-size: 24px;
+                        font-size: 30px;
                         text-align: center;
                         transition: .5s;
                         color: $white;
@@ -380,13 +393,15 @@
             .indicator{
                 overflow: hidden;
                 position: absolute;   
-                width: 60px ;
-                height: 60px ;
+                width: 70px;
+                height:70px;
                 background: $yellow;
-                top: -4.0vw;
+                top: -45%;
                 border-radius: 50%;
-                border: 6px solid $lightBlack;
+                border: 6px solid $indigo;
                 transition: .5s;
+                left: 6.3vw; /* Indicatorni boshlanish nuqtasini markazga qo'yamiz */
+                transform: translateX(0%);
   
                 &::before{
                     overflow: hidden;
@@ -417,16 +432,17 @@
             }
         }
         li:nth-child(1):has(.active) ~ .indicator{
-            transform: translateX(calc(-33.5vw));
+            left: calc(6.8%);
         }
         li:nth-child(2):has(.active) ~ .indicator{
-            transform: translateX(calc(-11.2vw ));
+            left: calc(31.6%);
         }
         li:nth-child(3):has(.active) ~ .indicator{
-            transform: translateX(calc(11.2vw));
+            left: calc(56.6%);
+            
         }
         li:nth-child(4):has(.active) ~ .indicator{
-            transform: translateX(calc(33.6vw));
+            left: calc(81.3%);
         }
 
     }
@@ -439,7 +455,7 @@
             background: $yellow;
       
             border-radius: 50%;
-            border: 6px solid $indigo !important;
+            border: 6px solid $lightBlack !important;
             transition: .5s;
 
             &::before{
@@ -472,28 +488,116 @@
     }
     
 }
-@media screen and (max-width: 710px){
+// @media screen and (max-width: 710px){
+//     .indicator{
+//         top: -4.5vw  !important;
+//     }
+// }
+// @media screen and (max-width: 640px){
+//     .indicator{
+//         top: -4.5vw  !important;
+//     }
+// }
+// @media screen and (max-width: 500px) {
+//     .indicator{
+//         top: -6.2vw !important;
+//     }
+// }
+// @media screen and (max-width: 400px) {
+//     .indicator{
+//         top: -7.4vw !important;
+//     }
+// }
+// @media screen and (max-width: 350px) {
+//     .indicator{
+//         top: -8.4vw !important;
+//     }
+// }
+
+@media screen and (max-width:  550px)
+{
     .indicator{
-        top: -4.5vw  !important;
+        display: none;
     }
-}
-@media screen and (max-width: 640px){
-    .indicator{
-        top: -4.5vw  !important;
+    li:has(.active){
+        background: $yellow !important;
     }
-}
-@media screen and (max-width: 500px) {
-    .indicator{
-        top: -6.2vw !important;
+    li{
+        position: relative;
+        width: 25%;
+        z-index: 1;
+        a{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+            font-weight: 500;
+
+            .icon{
+                position: relative;
+                display: block;
+                line-height: 75px;
+                font-size: 30px;
+                text-align: center;
+                transition: .5s;
+                color: $white;
+            }
+            .text{
+                position: absolute;
+                color: $white;
+                font-weight: 400;
+                font-size: 1em;
+                letter-spacing: 0.05em;
+                transition: .5s;
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            
+
+        }
+
+        .active{
+            .icon{
+                transform: translate(0) !important;
+                
+            }.text{
+                opacity: 0 !important;
+                color: $indigo !important;
+                transform: translateY(0) !important ;
+            }
+        }
+        &:hover a .icon{
+            
+            transform: translate(0) !important;
+            
+            
+            
+          
+        }
+        &:hover a .text{
+            opacity: 0 !important;
+            transform: translateY(0) !important;
+        }
+        
     }
+
+
 }
-@media screen and (max-width: 400px) {
-    .indicator{
-        top: -7.4vw !important;
+@media screen and (max-width: 464px) and (min-width: 320px) {
+    li:nth-child(1):has(.active) ~ .indicator{
+        left: calc(4.1%) !important;
     }
-}
-@media screen and (max-width: 350px) {
-    .indicator{
-        top: -8.4vw !important;
+    li:nth-child(2):has(.active) ~ .indicator{
+        left: calc(29.6%) !important;
+    }
+    li:nth-child(3):has(.active) ~ .indicator{
+        left: calc(54.4%) !important;
+        
+    }
+    li:nth-child(4):has(.active) ~ .indicator{
+        left: calc(78.6%) !important;
     }
 }
